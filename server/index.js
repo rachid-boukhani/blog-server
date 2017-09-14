@@ -1,0 +1,22 @@
+import express from 'express'
+import mongoose from 'mongoose'
+import config from './config'
+import appMiddlware from './middleware/appMiddlware'
+import api from './api'
+
+const app = express()
+
+mongoose.connect(config.db.url)
+
+// setup the app middlware
+appMiddlware(app)
+
+app.use('/api', api)
+
+app.use((error, req, res) => {
+  res.status(500).send(error.stack)
+})
+
+app.use((req, res) => res.send('API response'))
+
+export default app

@@ -18,10 +18,10 @@ let config = {
 // Load config from production.js or development.js ...
 let envConfig
 try {
-  envConfig = require('./' + config.env)
-  envConfig = envConfig || {}
+  envConfig = require('./' + config.env).default || {}
 } catch (e) {
   envConfig = {}
 }
 
-export default merge({}, config, envConfig)
+const currentConfig = merge(config, envConfig)
+export default currentConfig
