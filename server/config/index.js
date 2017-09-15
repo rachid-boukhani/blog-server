@@ -9,8 +9,8 @@ let envs = {
 let config = {
   env: process.env.NODE_ENV || envs.dev,
   port: process.env.PORT || 3000,
-  expireTime: 24 * 60 * 10,
   secrets: {
+    expireTime: 24 * 60 * 10,
     jwt: process.env.JWT || 'gumball'
   }
 }
