@@ -9,6 +9,10 @@ const app = express()
 
 mongoose.connect(config.db.url)
 
+if (config.seed) {
+  require('./util/seed')
+}
+
 // setup the app middlware
 appMiddlware(app)
 

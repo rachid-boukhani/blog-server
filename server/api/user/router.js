@@ -7,10 +7,11 @@ const checkUser = [checkToken, getCurrentUser]
 const router = Router()
 
 router.param('id', controller.params)
+router.get('/me', checkUser, controller.me)
 
 router.route('/')
   .get(controller.get)
-  .post(checkUser, controller.post)
+  .post(controller.post)
 
 router.route('/:id')
   .get(controller.getOne)

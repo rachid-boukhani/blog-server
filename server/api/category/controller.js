@@ -15,7 +15,6 @@ export default {
 
   get: (req, res, next) => {
     Model.find({})
-      .populate('author', '-password').exec()
       .then(models => res.json(models), next)
   },
   getOne: (req, res, next) => {
