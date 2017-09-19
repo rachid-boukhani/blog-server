@@ -1,18 +1,9 @@
 import {merge} from 'lodash'
 
-let envs = {
-  dev: 'development',
-  test: 'testing',
-  prod: 'production'
-}
-
 let config = {
-  env: process.env.NODE_ENV || envs.dev,
-  port: process.env.PORT || 3000,
-  secrets: {
-    expireTime: 24 * 60 * 10,
-    jwt: process.env.JWT || 'gumball'
-  }
+  env: process.env.NODE_ENV || 'development',
+  seed: false,
+  port: process.env.PORT || 3000
 }
 
 // Load config from production.js or development.js ...
